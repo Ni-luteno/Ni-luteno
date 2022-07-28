@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="diagramaPrevioEj3">
+  <ClassDiagramComponents>
+    <Class name="Baraja" package="" visibility="public" xPosition="49.0" yPosition="36.0">
+      <Fields>
+        <Field name="cartas" type="ArrayList&lt;Carta&gt;" visibility="private"/>
+        <Field name="montonCartas" type="ArrayList&lt;Carta&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="barajar" returnType="void" visibility="public"/>
+        <Method name="siguienteCarta" returnType="Carta" visibility="public"/>
+        <Method name="cartasDisponibles" returnType="int" visibility="public"/>
+        <Method name="darCartas" returnType="Carta" visibility="public"/>
+        <Method name="cartasMonton" returnType="void" visibility="public"/>
+        <Method name="mostrarBaraja" returnType="void" visibility="public"/>
+        <Method name="untitledMethod" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Carta" package="" visibility="public" xPosition="475.0" yPosition="55.0">
+      <Fields>
+        <Field name="valor" type="int" visibility="private"/>
+        <Field name="palo" type="PalosCartas" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="Carta" returnType="PalosCartas" visibility="public">
+          <Argument type="int" name="valor"/>
+          <Argument type="PalosCartas" name="palo"/>
+        </Method>
+        <Method name="setters" returnType="void" visibility="public"/>
+        <Method name="getters" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="main" package="" visibility="public" xPosition="61.0" yPosition="350.0">
+      <Fields>
+        <Field name="leer" type="Scanner" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="crearBaraja" returnType="Baraja" visibility="public">
+          <Argument type="baraja" name="b"/>
+        </Method>
+        <Method name="llenarConPalo" returnType="void" visibility="public">
+          <Argument type="Barja" name="b"/>
+          <Argument type="PalosCartas" name="palo"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Enum name="PalosCartas" package="" visibility="public" xPosition="422.0" yPosition="332.0">
+      <Literals>
+        <Literal name="ORO"/>
+        <Literal name="BASTO"/>
+        <Literal name="ESPADA"/>
+        <Literal name="COPA"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation name="usa" source="main" target="Baraja" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usa" source="main" target="PalosCartas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="cartasMonton" source="Baraja" target="Carta" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <HasRelation name="cartas" source="Baraja" target="Carta" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="paloDeCarta" source="Carta" target="PalosCartas" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <UseRelation name="Tiene" source="Carta" target="PalosCartas" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation name="usa cartaPalo para llenar baraja" source="Baraja" target="Carta" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
